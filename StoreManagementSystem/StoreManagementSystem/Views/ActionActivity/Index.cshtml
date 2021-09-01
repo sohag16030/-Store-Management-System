@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StoreManagementSystem.Models.ActionActivity>
+
+<h4>Action List</h4>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionStatus)
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionStatus)
+            </td>
+            <td>
+                <a asp-action="Active" asp-route-id="@item.AutoId">Active</a> |
+                <a asp-action="Inactive" asp-route-id="@item.AutoId">Inactive</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
